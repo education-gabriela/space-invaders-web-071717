@@ -10,7 +10,6 @@ class Spaceship {
     this.phasersCharge = 'uncharged'
   }
   addCrewMembersToShip(crew) {
-    debugger
     return crew.map(member => {
       member.currentShip = this
       return member
