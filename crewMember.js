@@ -3,8 +3,13 @@ class CrewMember{
     this.position = position
     this.currentShip = "Looking for a Rig"
   }
+
+  boardedStatus() {
+    return this.currentShip === "Looking for a Rig" ? false : true
+  }
+
   engageWarpDrive() {
-    if (this.currentShip === "Looking for a Rig") {
+    if (!this.boardedStatus()) {
       return "had no effect"
     } else if (this.position === "Pilot") {
       this.currentShip.warpDrive = 'engaged!'
@@ -13,7 +18,7 @@ class CrewMember{
     }
   }
   setsInvisibility() {
-    if (this.currentShip === "Looking for a Rig") {
+    if (!this.boardedStatus()) {
       return "had no effect"
     } else if (this.position === 'Defender') {
       this.currentShip.cloaked = true
@@ -22,7 +27,7 @@ class CrewMember{
     }
   }
   chargePhasers(){
-    if (this.currentShip === "Looking for a Rig") {
+    if (!this.boardedStatus()) {
       return "had no effect"
     } else if(this.position === "Gunner") {
       this.currentShip.phasersCharge = "charged!"
